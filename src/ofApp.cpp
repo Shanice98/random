@@ -10,13 +10,19 @@ Y = {630, 400, 900,40, 200, 0, 90, 30}; //set of y-coordinates for jewel*/
 std::random_device rd;
 std::mt19937 eng(rd());
 
-std::uniform_int_distribution<> uniX(0, 1200);
-std::uniform_int_distribution<> uniY(0, 970);
+float meanX = 1000;
+float meanY = 800;
+
+float standD = 15;
+
+
+std::normal_distribution<float> normX(meanX, standD);
+std::normal_distribution<float> normY(meanY, standD);
 
 for(int i=0; i<20; i++)
 {
-	X.push_back(uniX(eng));
-	Y.push_back(uniY(eng));
+	X.push_back(normX(eng));
+	Y.push_back(normY(eng));
 }
 }
 
